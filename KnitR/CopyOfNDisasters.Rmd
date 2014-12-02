@@ -1,0 +1,127 @@
+require(googleVis)
+---
+title: 'CS 378 Data Science: An Analysis of Natural Disasters'
+output: html_document
+---
+
+##What is a Natural Disaster?
+
+It is a situation or event, which overwhelms local capacity, necessitating a request to national or international level for external assistance (definition considered in EM-DAT).
+
+###Data Set and Sources
+Our analysis relied on data from EM-DAT, the World Bank, the Advanced National Seismic System (ANSS), Global Risk Data Platform, and the World Data Service:
+
+####[__EM-DAT__](http://www.emdat.be/database)
+EM-DAT is an international disaster database founded by the Centre for Research on the Epidemiology of Disasters (CRED).  The EM-DAT database provided information from 1960-2014 such as:
+* Disaster Type- Earthquakes, Storms, etc.
+* Number Injured- Number of people reported injured in the disaster event.
+* Number of Deaths- Number of people reported dead in the disaster event .
+* Number left Homeless- Number of people reported homeless.
+* Number Affected- Number - People requiring immediate assistance during a period of emergency, i.e. requiring basic survival needs such as food, water, shelter, sanitation and immediate medical assistance. Appearance of a significant number of cases of an infectious disease introduced in a region or a population that is usually free from that disease.
+* Total Damage (Estimated) - Estimated loss caused by the disaster in US dollars.
+
+####[__World Bank__](http://databank.worldbank.org/data/home.aspx)
+The World Bank is a United Nations international financial institution that provides loans to developing countries for capital programs. We enriched our dataset by incorporating country indicators from 1960-2014:
+*GDP (in US dollars)
+*Population
+*Income Group (Gross National Income per Capita)
+*Many others…
+
+####[__ANSS (Advanced National Seismic System) Global Earthquake Catalog__](http://ncedc.org/anss/catalog-search.html)
+
+*ANSS is hosted by the Northern California Earthquake Data Center. The mission of ANSS is to provide accurate and timely data and information for seismic events, including their effects on buildings and structures.
+*This dataset provided Global earthquake records from the last 50 years (since 2014) (~570,000 rows)
+*Search parameters used:
+    + catalog = ANSS
+    + start_time = 1964/01/01,00:00:00
+    + end_time = 2014/09/12,22:13:44
+        + covers the last 50 years, anything larger would have been unmanageable/unrealistic at this point due to accuracy of data measurements
+    + minimum_magnitude = 3.0
+        + 3.0 was chosen as a minimum because that is generally the minimum threshold for people to notice an earthquake
+    + maximum_magnitude = 10
+    + event_type = E 
+###[__Global Risk Data Platform: Earthquakes - Risk, Annual Average Losses__](http://preview.grid.unep.ch/index.php?preview=data&events=earthquakes&evcat=8&lang=eng)
+*The Global Risk Data Platform is created and hosted by UNEP/GRID-Geneva and supported by UNISDR. The Global Risk Data Platform allows the visualisation of data on natural hazards, exposure (both human and economical), and risk.
+* This dataset provided average annual losses from earthquakes (~ 200 rows after excluding those with missing data)
+
+###[__National Geophysical Data Center / World Data Service (NGDC/WDS): Significant Volcanic Eruptions Database__](http://www.ngdc.noaa.gov/nndc/servlet/ShowDatasets?dataset=102557&search_look=50&display_look=50)
+
+* World Data Service is hosted by the National Geophysical Data Center of the National Oceanic and Atmospheric Administration. 
+* Search parameters were all left blank (so we used the entire data set, unfiltered)
+*This dataset provides significant volcanic eruptions data (~650 rows)
+    + includes eruptions over a long period of time (thousands of years) but predominantly contains information from the 1900s.
+
+###[__National Geophysical Data Center / World Data Service (NGDC/WDS): Global Historical Tsunami Database__](http://www.ngdc.noaa.gov/nndc/struts/form?t=101650&s=70&d=7)
+
+* Hosted by the National Geophysical Data Center of the National Oceanic and Atmospheric Administration.
+*This dataset provides  Global tsunami source data (~2,500 rows) and Global tsunami runup data (~25,000 rows)
+    + includes tsunamis from approximately the last two thousand years, but mostly from the last few hundred years.
+* search parameters were all left blank (again using the entire data set, unfiltered)
+* the url above links to the 'event' information, you can get to the 'runup' information [__here__](http://www.ngdc.noaa.gov/nndc/struts/form?t=101650&s=167&d=166)
+
+
+##Geospatial Analysis
+We used the following services ANSS, Global Risk Data Platform, and World Data Service to analyze these specific natural disasters to get a sense of “what was interesting”. Most of the work was exploratory. :
+* Earthquakes
+*Tsunamis
+*Volcanic Eruptions
+
+This analysis used RStudio to generate the results and process the data.
+
+#### Top 10 Locations of Tsunami deaths since 2010
+```{r, echo=FALSE, message=FALSE,results='asis'}
+
+load("../02NaturalDisastersData/frames/tsunami_deaths_top10.RData")
+t<- gvisGeoMap(data=tsunami_deaths_top10, locationvar="LATLONG",
+               numvar="DEATHS", hovervar="DATA",
+               options=list(colors="[0xECE7F2,0xA6BDDB,0x2B8CBE]",width="750px",height="500px", dataMode="markers"))
+plot(t)
+print(t, tag = "chart")
+```
+
+####Top 10 Financial loss due to Tsunamis since 2010
+```{r, echo=FALSE, message=FALSE,results='asis'}
+
+load("../02NaturalDisastersData/frames/tsunami_financial_top10.RData")
+t<- gvisGeoMap(data=tsunami_financial_top10, locationvar="LATLONG",
+               numvar="MILLIONS OF DOLLARS", hovervar="DATA",
+               options=list(colors="[0xECE7F2,0xA6BDDB,0x2B8CBE]",width="750px",height="500px", dataMode="markers"))
+plot(t)
+print(t, tag = "chart")
+```
+
+#### Top 10 Locations of Volcano related deaths since 1944
+```{r, echo=FALSE, message=FALSE,results='asis'}
+
+load("../02NaturalDisastersData/frames/volcano_deaths_top10.RData")
+t<- gvisGeoMap(data=volcano_deaths_top10, locationvar="LATLONG",
+               numvar="DEATHS", hovervar="DATA",
+               options=list(colors="[0xECE7F2,0xA6BDDB,0x2B8CBE]",width="750px",height="500px", dataMode="markers"))
+plot(t)
+print(t, tag = "chart")
+```
+
+####Top 8 Financial damages due to Volcanoes since 1944
+```{r, echo=FALSE, message=FALSE,results='asis'}
+
+load("../02NaturalDisastersData/frames/volcano_financial_top10.RData")
+t<- gvisGeoMap(data=volcano_financial_top10, locationvar="LATLONG",
+               numvar="MILLIONS OF DOLLARS", hovervar="DATA",
+               options=list(colors="[0xECE7F2,0xA6BDDB,0x2B8CBE]",width="750px",height="500px", dataMode="markers"))
+plot(t)
+print(t, tag = "chart")
+```
+
+##Natural Disasters: A Regional and Economic Perspective
+Our more recent analysis
+
+--picture of whole workflow
+
+### Disaster Trends
+#### Results
+
+### Measuring Disaster Significance
+#### Results
+
+### Per Capita Analysis
+#### Results
