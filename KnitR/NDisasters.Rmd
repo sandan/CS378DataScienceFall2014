@@ -120,20 +120,19 @@ Most of the work was exploratory. This analysis used RStudio to generate the res
 
 ###Results
 Below are some resulting graphs we were able to make using gvisGeoMap in the googleVis package in RStudio. (See Appendix for details on R code)
+####Top 10 locations of economic loss due to tsunamis since 2010
 ![Top 10 locations of economic loss due to tsunamis since 2010](Images/TsunamiTop10.png "Top 10 locations of economic loss due to tsunamis since 2010")
+####Top 10 locations of Volcano related deaths since 2010
 ![Top 10 locations of Volcano related deaths since 2010](Images/VolcanoesTop10.png "Top 10 locations of Volcano related deaths since 2010")
+####Top 8 locations of economic loss due to volcano eruptions since 2010
 ![Top 8 locations of economic loss due to volcano eruptions since 2010](Images/VolcanoTop8.png "Top 8 locations of economic loss due to volcano eruptions since 2010")
 
 ###Shiny App
-
 The Shiny App interface:
 
 ![Shiny App](Images/shinyapp.png)
 
 The app allows you to see a map of top 10 seismic activity by magnitude since 1960. The slider bar allows you to adjust the year and the marks show information such as country name and magnitude.
-
-
-
 
 
 ##Natural Disasters: A Regional and Economic Perspective
@@ -142,11 +141,6 @@ Our more recent analysis considered the impact of natural disasters on countries
 
 
 This analysis used the unsupervised algorithms Clustering and Anomaly Detection from Oracle Data Miner:
-
-
---picture of whole workflow
-
-
 ### Rare Disasters
 
 Anomalous records in our data have the following disaster type:  
