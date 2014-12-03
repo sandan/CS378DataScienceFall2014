@@ -246,43 +246,48 @@ What we found: Low to middle Income countries contribute disproportionately more
 
 We wanted to use data mining with some calculated per capita measures in order to gain some more insight into the data and the economic characteristics of countries which are exposed to certain disasters. First, using a SQL query, shown here, we calculated GDP per capita, number of affected people per capita, number of deaths per capita, and the ratio of economic damage to GDP.
 
--- Show sql query screenshot here
+![per Capita SQL Query](Images/Per Capita Analysis/perCapitaQuery.png)
 
-Though we tried several different algorithms with this data, most didn’t show much promise in regards to finding anything interesting. However, we did finally come across something using some of the clustering algorithms, which fit well with the analysis we had done in Tableau, discussed in the previous section. The Oracle Data Miner nodes shown here (with some extra details) show the basic approach used, where we did one set of algorithms using the continuous ‘GDP per Capita’ measure and the other with the discrete ‘Income Group’ measure instead.
+Though we tried several different algorithms with this data, most didn’t show much promise in regards to finding anything interesting. However, we did finally come across something using some of the clustering algorithms, which fit well with the analysis we had done in Tableau, discussed in the previous section. The Oracle Data Miner nodes shown here (along with some extra details) show the basic approach used, where we did one set of algorithms using the continuous ‘GDP per Capita’ measure and the other with the discrete ‘Income Group’ measure instead.
 
--- Show data miner clustering screenshots here
+![per Capita Sample Workflow](Images/Per Capita Analysis/perCapitaWorkflow.png)
 
 Shown in the next two sets of images, some of the clustering algorithms indicated some pretty interesting trends. In one run, 98% (!) of disasters were grouped into a single node. Though no other variation that we tried got result quite so staggering, most of them suggested a similar trend of lower income countries being disproportionately affected by more significant, and sometimes chronic, disasters.
 
---Show first set of clustering results
+![Cluster 1](Images/Per Capita Analysis/perCapitaCluster1.png)
 
 A second interesting clustering:
 
---Show second set
+![Cluster 2](Images/Per Capita Analysis/perCapitaCluster2.png)
 
 Taken together, the clustering builds we ran suggested a fairly clear overall trend:
-
-* The vast majority of disasters (up to 98%) affect only a small portion of the populations of countries that they hit (< 11.5%).
-
-
-* The remaining disasters are the ones which affect a much more substantial portion of the populations (sometimes even more than 50%).
-
-
-* These disasters are limited almost exclusively to countries with a relatively low GDP per capita, or low income classification.
-
-
+*   The vast majority of disasters (up to 98%) affect only a small portion of the populations of countries that they hit (< 11.5%).
+*   The remaining disasters are the ones which affect a much more substantial portion of the populations (sometimes even more than 50%).
+*   These disasters are limited almost exclusively to countries with a relatively low GDP per capita, or low income classification.
 
 Going off of this information, and keeping in mind what we had done earlier in Tableau (as mentioned in the previous section) we constructed a few more graphs that seemed to really reinforce what our previous analysis had suggested.
 
-
 These first scatterplots show GDP per Capita plotted against the ‘Affected Ratio’ (number of affected people per capita) and the ‘Damage Ratio’ (ratio of economic damage to GDP), respectively. 
 
--- show per capita scatter plots 
+![per Capita GDP vs. Affected Ratio](Images/Per Capita Analysis/perCapitaGDPvsAffectedRatio.jpg)
 
+![per Capita GDP vs. Damage Ratio](Images/Per Capita Analysis/perCapitaGDPvsDamageRatio.jpg)
 
+These two plots do well to highlight the general trend of lower income countries being the ones most severely affected by disasters, at least proportionally to their overall population and GDP. Though some of the disasters with the highest ‘Affected Ratio’ took place in countries with smaller populations, thus perhaps accounting for a bit of the trend, it is still fairly evident that wealthier countries with relatively low populations are not as strongly affected in the same way. 
 
-#### Results
+For the next two graphs, we used the discrete ‘Income Group’ measure as opposed to ‘GDP per Capita’. Key to fully understanding these graphs is the distinction between the two groups of high income nations. One group consists of members of the OECD (Organization for Economic Co-operation and Development) while the other consists of the rest of the high income countries which are not members. The following map shows which high income countries fall into which category.
 
+![OECD Map](Images/Per Capita Analysis/OECDmap.jpg)
+
+As can be seen, high income OECD countries consist of most of western Europe, the United States, Canada, Israel, Australia, New Zealand, and Chile. The other high income nations are Kuwait, Saudi Arabia, Russia, Latvia, Lithuania, Uruguay, and a few others. Basically, high income OECD countries consist largely of those nations we would colloquially consider as “the West”, which is why the distinction is an interesting and useful one to make.
+
+These next two bar graphs show the average ‘Affected Ratio’ and the average ‘Damage Ratio’ of disasters, respectively, per income group. 
+
+![Income Group vs. Affected Ratio](Images/Per Capita Analysis/IncomeGroupvsAffectedRatio.jpg)
+
+![Income Group vs. Damage Ratio](Images/Per Capita Analysis/IncomeGroupvsDamageRatio.jpg)
+
+The first of these graphs shows clearly that low income countries have a significantly higher percentage of their population affected by disasters, on average. Upper middle income countries fare slightly better, but the difference to the high income countries (OECD or not) is stark, as those have much smaller proportions of their population affected by any given disaster. The damage ratio graph shows a similar, but slightly different story, and is where we see the real differences between the high income OECD and non-OECD countries. The high income countries not part of the OECD (and “the West”) see a damage ratio almost equal to that of upper middle income countries, while the high income OECD nations have a significantly lower average damage ratio. Interestingly, low income countries have a relatively lower average damage ratio, which could be a result of less expensive infrastructure that can be destroyed. However, what is clear from these two graphs is that high income western nations suffer disproportionately less overall from natural disasters, even compared to their high income counterparts in the rest of the world. The dichotomy of who suffers from these disasters is stark, and Western nations have insulated themselves from the worst of the damages while the rest of the world continues to relatively struggle to cope with disasters.
 
 ##Tableau Demo
 
