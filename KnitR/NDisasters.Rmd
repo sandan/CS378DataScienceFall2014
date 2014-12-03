@@ -277,7 +277,7 @@ These two plots do well to highlight the general trend of lower income countries
 
 For the next two graphs, we used the discrete ‘Income Group’ measure as opposed to ‘GDP per Capita’. Key to fully understanding these graphs is the distinction between the two groups of high income nations. One group consists of members of the OECD (Organization for Economic Co-operation and Development) while the other consists of the rest of the high income countries which are not members. The following map shows which high income countries fall into which category.
 
-![OECD Map](Images/Per Capita Analysis/OECDmap.jpg)
+![OECD Map](Images/Per Capita Analysis/OECDmap.png)
 
 As can be seen, high income OECD countries consist of most of western Europe, the United States, Canada, Israel, Australia, New Zealand, and Chile. The other high income nations are Kuwait, Saudi Arabia, Russia, Latvia, Lithuania, Uruguay, and a few others. Basically, high income OECD countries consist largely of those nations we would colloquially consider as “the West”, which is why the distinction is an interesting and useful one to make.
 
