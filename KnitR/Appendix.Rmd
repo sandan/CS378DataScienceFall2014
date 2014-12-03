@@ -1,5 +1,34 @@
 #### Tableau Explanations:
 
+Description of "Anomaly by Disaster Type"
+Occurrence for each Disaster Type broken down by Occurrence.  Color shows details about Predicate.
+Marks
+
+The mark type is Bar.
+Stacked marks is on.
+
+Shelves
+
+Rows:
+Measure Names, Occurrence
+Columns:
+Disaster Type
+Color:
+Predicate
+
+Dimensions
+Measure Names has 1 members on this sheet
+Members: Occurrence
+Disaster Type has 11 members on this sheet
+Members: Drought; Earthquake (seismic activity); Mass movement dry; Mass movement wet; Wildfire; ...
+Disaster Type is sorted descending by Occurrence.
+Measures
+Predicate has 2 members on this sheet
+Members: 0; 1
+
+
+
+
 Description of "Sig. Ratio vs. Damage GDP Ratio"
 
 Average of Significance Ratio vs. average of Damage GDP Ratio. Color shows details about INCOME_GROUP. Details are shown for Country Name and Disaster Type. The data is filtered on sum of Significance Ratio, average of LOG10 Total Damage, sum of Damage GDP Ratio and sum of Total Damage. The sum of Significance Ratio filter keeps non-Null values only. The average of LOG10 Total Damage filter keeps non-Null values only. The sum of Damage GDP Ratio filter keeps non-Null values only. The sum of Total Damage filter ranges from 1 to 210,000,000. The view is filtered on INCOME_GROUP and Exclusions (Country Name,INCOME_GROUP,Year 2). The INCOME_GROUP filter keeps High income: OECD, High income: nonOECD, Low income, Lower middle income and Upper middle income. The Exclusions (Country Name,INCOME_GROUP,Year 2) filter keeps 4,027 members.
