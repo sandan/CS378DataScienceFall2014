@@ -1,13 +1,4 @@
-
----
-
-title: "CS 378 Data Science: An Analysis of Natural Disasters"
-
-output: html_document
-
----
-
-
+#CS 378 Data Science: An Analysis of Natural Disasters
 ##What is a Natural Disaster?
 
 
