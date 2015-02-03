@@ -160,7 +160,7 @@ Note that these outliers are exclusively from the low to upper middle income cou
 Surprisingly, Low Income countries mostly lie in the third quadrant.
 
 ###Data Miner
-These visuals were inspired by the cluster analysis done in Oracle Data Miner. We ran various attributes that we thought might be interesting to cluster and the ones that seemed most interesting were our two measures with income group. We further
+These visuals were inspired by the cluster analysis done in Oracle Data Miner. We ran various attributes that we thought might be interesting to cluster and the ones that seemed most interesting were our two measures with income group. 
 We used the K-Means algorithm and saw that the decision tree it produced generally grouped lower income countries into clusters with high demographic damage ratios and high damage gdp ratios. This led us to consider the scatterplot above. Then, we wondered if time played a role to see if these clusterings generally held. This led to two the bar charts above.
 
 ####Clustering Workflow in Data Miner
