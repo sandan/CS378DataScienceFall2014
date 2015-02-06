@@ -1,7 +1,7 @@
-CS378DataScienceFall2014
+CS378 DataScience Fall2014
 ========================
-The source code used for the data analysis project for CS378.
+An analysis of Natural Disasters around the world.
 
-The report can be found in the KnitR/NDisasters.Rmd file:
-
-https://github.com/sandan/CS378DataScienceFall2014/blob/master/KnitR/NDisasters.Rmd
+The report can be found in the KnitR/NDisasters.Rmd file
+The Oracle Data Miner files can be imported using the DataMiner/*.xml files
+Tableau worksheets can be imported from Tableau/*.twb
