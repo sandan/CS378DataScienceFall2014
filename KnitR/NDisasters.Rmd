@@ -134,7 +134,7 @@ Our more recent analysis considered the impact of natural disasters on countries
 We chose to measure a natural disasters impact relative to a country in terms of two measures to more accurately assess the damage done by the disaster to the country.
 (Note: Tableau Explanations for the charts in this section can be found in the Appendix file)
 
-* Demographic Damage Ratio=(#Affected + #Injured +#Deaths + #Homeless)/Population of Country
+* Demographic Damage Ratio (also known as the Significance Ratio)=(#Affected + #Injured +#Deaths + #Homeless)/Population of Country
 
 * Damage GDP Ratio= Total Damage /GDP of country
 
@@ -152,7 +152,7 @@ Historically, High income countries do not sustain as much demographic damage th
 
 ![Average Damage GDP vs. Average Demographic Damage](Images/Ratioall.jpg)
 
-This scatterplot shows which disasters contributed most to the average Demographic Damage Ratio and the average Damage GDP Ratio (the averages were calculated across all years). i
+This scatterplot shows which disasters contributed most to the average Demographic Damage Ratio and the average Damage GDP Ratio (the averages were calculated across all years).
 It sums up the previous two bar charts by removing the Year axis and considering how much each country, color coded by its income group, contributed to each of the Average Damage GDP ratio and the Average Demographic Damage Ratio.
 The outliers in the 1st,2nd, and 4th quadrants are lower to upper middle income countries. This plot reveals the outliers contributing disproportionately to the overall Averages of Demographic Damage and Damage GDP Ratios.
 
